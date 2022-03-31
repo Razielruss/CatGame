@@ -7,7 +7,7 @@ Charakter::Charakter() {
 }
 
 Charakter::Charakter(Sprite& sprite) {
-	texture = new Texture(63.0f, 63.0f, "Katze");
+	texture = new Texture(64.0f, 64.0f, "Katze");
 	spriteOfCat = &sprite;
 	initData();						//Daten füllen
 }
