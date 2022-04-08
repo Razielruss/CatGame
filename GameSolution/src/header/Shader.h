@@ -32,7 +32,10 @@ public:
 	Shader& operator=(Shader& other);
 
 	void setUniform2f(const char* uniform, float v1, float v2);
+	void setUniform3f(const char* uniform, float v1, float v2, float v3);
 	void setUniform1i(const char* uniform, int v1);
+	void setUniformM4fv(const char* uniform, int count, float* matrix);
+
 
 	void bind();
 	void unbind();

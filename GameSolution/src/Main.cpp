@@ -24,7 +24,6 @@ int main(void)
 {
 	Game game;
 	game.process();
-
 	return 0;
 
 }

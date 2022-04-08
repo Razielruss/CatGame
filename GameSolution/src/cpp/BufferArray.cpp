@@ -34,3 +34,7 @@ void BufferArray::aktivateAllLayouts() {
 	}
 
 }
+
+void BufferArray::deleteAllLayouts() {
+	bufferLayouts.clear();
+}

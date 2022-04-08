@@ -48,6 +48,7 @@ void Charakter::initData() {
 	const int coordSamples = 4;
 	Coordinates coordinates[coordSamples];					//Liste das die Coordinaten strukturiert speichert
 
+	//Zuerst einzelne Ecken bestimmen
 	//obenlinks
 	coordinates[0].position = { x, y };
 	coordinates[0].textCoords = { 0.0, 1.0f };
@@ -65,12 +66,13 @@ void Charakter::initData() {
 	coordinates[3].textCoords = { texture->getTextureWidth() / spriteOfCat->getSpriteWidth(),
 								(spriteOfCat->getSpriteHeight() - texture->getTextureHeight()) / spriteOfCat->getSpriteHeight() };
 
-	//Daten Füllen
+
+	//Dann Daten Füllen
 	for (int i = 0; i < dataLength / coordSamples; i++) {
-		data[i * coordSamples + 0] = coordinates[i].position.x;
-		data[i * coordSamples + 1] = coordinates[i].position.y;
-		data[i * coordSamples + 2] = coordinates[i].textCoords.x;
-		data[i * coordSamples + 3] = coordinates[i].textCoords.y;
+		data[i * coordSamples + 0] = coordinates[i].position.x;			//x koordinate des Rechteckes
+		data[i * coordSamples + 1] = coordinates[i].position.y;			//y Koordinate des Rechteckes
+		data[i * coordSamples + 2] = coordinates[i].textCoords.x;		//x Koordinate der Texture
+		data[i * coordSamples + 3] = coordinates[i].textCoords.y;		//y koordinate der Texture
 	}
 }
 

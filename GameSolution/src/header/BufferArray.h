@@ -26,4 +26,6 @@ public:
 
 	//Alle definierten Layouts werden aktiviert
 	void aktivateAllLayouts();
+
+	void deleteAllLayouts();
 };
