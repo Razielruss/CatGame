@@ -80,8 +80,8 @@ void Game::process() {
 				right = true;
 			}
 
+			glm::mat4 view = camera.getView();
 			//Kamera Logik
-			view = glm::lookAt(cameraPos, cameraFront, cameraUp);
 			shader->setUniformM4fv("view", 1, glm::value_ptr(view));
 			shader->setUniformM4fv("transformation", 1, glm::value_ptr(transformation));
 			shader->setUniform3f("move", debugger.move.x, debugger.move.y, 0.0f);
@@ -94,6 +94,7 @@ void Game::process() {
 
 		/* Poll for and process events */
 		glfwPollEvents();
+		camera.input(window);
 	}
 
 	glfwTerminate();
@@ -141,6 +142,144 @@ void Game::cameraTest() {
 	glfwTerminate();
 }
 
+void Game::processMapCamera() {
+
+	Shader bricks("Resources/Shader.shader", "#mapVertexShader", "#mapFragmentShader");
+	Shader cat("Resources/Shader.shader", "#defaultVertexShader", "#defaultFragmentShader");
+
+	Sprite brickSprite("Resources/Bilder/brick.png", 0);
+	brickSprite.bind();
+	Sprite catSprite("Resources/Bilder/KatzeAnimation.png", 1);
+	catSprite.bind();
+
+	Charakter charaker(catSprite);
+	Buffer vertexBuffer(GL_ARRAY_BUFFER);
+	Buffer indexBuffer(GL_ELEMENT_ARRAY_BUFFER);
+	BufferArray arrayBuffer;
+
+
+	const int quadCount = 10;
+
+	//VertexBuffer
+	float vertexBufferArray[(quadCount - 1) * 16];
+	float x = 0.0f, y = -0.2f, size = 0.2f;
+	glm::vec4 data[4];
+	for (int i = 0; i < quadCount - 1; i++) {
+
+		data[0] = glm::vec4(x, y, 0.0f, 1.0f);				//oben links
+		data[1] = glm::vec4(x, y - size, 0.0f, 0.0f);			//unten links
+		data[2] = glm::vec4(x + size, y, 1.0f, 1.0f);		//oben rechts
+		data[3] = glm::vec4(x + size, y - size, 1.0f, 0.0f);//unten rechts
+
+		for (int j = 0; j < 4; j++) {
+			vertexBufferArray[i * 16 + j * 4] = data[j].x;
+			vertexBufferArray[i * 16 + j * 4 + 1] = data[j].y;
+			vertexBufferArray[i * 16 + j * 4 + 2] = data[j].z;
+			vertexBufferArray[i * 16 + j * 4 + 3] = data[j].w;
+		}
+		x = x + size;
+	}
+
+	//IndexBuffer
+
+	unsigned int indexBufferArray[quadCount * 6] = { 0, 1, 2, 1, 2, 3 };
+	for (int i = 1; i < quadCount; i++) {
+		for (int j = 0; j < 6; j++) {
+			indexBufferArray[i * 6 + j] = i * 4 + indexBufferArray[j];
+		}
+	}
+
+	//Buffer
+	vertexBuffer.bind();
+	vertexBuffer.setBufferSizeF(charaker.getDataSize() + (quadCount - 1) * 16);
+	vertexBuffer.addDataF(charaker.getDataSize(), charaker.getData());
+	vertexBuffer.addDataF((quadCount - 1) * 16, vertexBufferArray);
+
+	indexBuffer.bind();
+	indexBuffer.setBufferSizeUI(quadCount * 6);
+	indexBuffer.addDataUI(quadCount * 6, indexBufferArray);
+
+
+	arrayBuffer.addLayoutF(0, 2, 4, 0);
+	arrayBuffer.addLayoutF(1, 2, 4, 2);
+	arrayBuffer.aktivateAllLayouts();
+
+
+	float time = 0.0f;
+	int i = 0;
+	bool right = false;
+	glm::mat4 transformationPersp = glm::perspective(glm::radians(45.0f), windowWidth / windowHeight, 0.1f, 10.0f);
+	//bricks.bind();
+	//bricks.setUniformM4fv("transformation", 1, glm::value_ptr(transformationOrtho));
+	//bricks.setUniform1i("ourTexture", brickSprite.getSlot());
+	bricks.unbind();
+	cat.bind();
+	catSprite.bind();
+	cat.setUniformM4fv("transformation", 1, glm::value_ptr(transformationPersp));
+	cat.setUniform1i("ourTexture", catSprite.getSlot());
+
+	bricks.bind();
+	bricks.setUniformM4fv("transformation", 1, glm::value_ptr(transformationPersp));
+	bricks.setUniform1i("ourTexture", brickSprite.getSlot());
+	bricks.setUniformM4fv("view", 1, glm::value_ptr(view));
+	brickSprite.bind();
+	while (!glfwWindowShouldClose(window))
+	{
+
+		float currentTime = glfwGetTime();
+		deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
+		/* Render here */
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+		bricks.unbind();
+		cat.bind();
+		catSprite.bind();
+		if (glfwGetTime() > time) {
+
+			//charakter nach rechts laufen lasse
+			if (right == true) {
+
+				cat.setUniform2f("shift", (((i % 4) + 1) * 64.0f) / catSprite.getSpriteWidth(), 0.0f / catSprite.getSpriteHeight());
+			}
+
+			//charakter nach links laufen lassen
+			else {
+				cat.setUniform2f("shift", (((i % 4) + 1) * 64.0f) / catSprite.getSpriteWidth(), -64.0f / catSprite.getSpriteHeight());
+			}
+			i++;
+			time += 0.2f;
+
+			//Logik um Techtur nach rechts und links plotten zu lassen
+			if ((i % 5) == 0 && right == true) {
+				right = false;
+				continue;
+			}
+			if ((i % 5) == 0 && right == false) {
+				right = true;
+			}
+
+		}
+		//Kamera Logik
+		view = glm::lookAt(cameraPos, cameraFront, cameraUp);
+		cat.setUniformM4fv("view", 1, glm::value_ptr(view));
+		cat.setUniform3f("move", debugger.move.x, debugger.move.y, 0.0f);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+
+		cat.unbind();
+		bricks.bind();
+		bricks.setUniformM4fv("view", 1, glm::value_ptr(view));
+		GLCall(glDrawElements(GL_TRIANGLES, 60, GL_UNSIGNED_INT, (void*)(6 * sizeof(unsigned int))));
+		/* Swap front and back buffers */
+		glfwSwapBuffers(window);
+
+		/* Poll for and process events */
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
+
+}
 //private Methoden
 
 bool Game::initGame() {
@@ -187,13 +326,13 @@ bool Game::initOpenGL() {
 		return false;
 	}
 
-	glfwSetKeyCallback(window, keyCallBack);
+	//glfwSetKeyCallback(window, keyCallBack);
 	glfwSetCursorPosCallback(window, mouse_callback);
 	return true;
 }
 
 
-
+/*
 void Game::keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -222,6 +361,7 @@ void Game::keyCallBack(GLFWwindow* window, int key, int scancode, int action, in
 
 	LOG(cameraPos.x, cameraPos.y, cameraPos.z);
 }
+*/
 
 
 

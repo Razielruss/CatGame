@@ -1,7 +1,13 @@
-﻿  Game.cpp
+﻿  Main.cpp
+  Camera.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Camera.cpp(23,28): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Camera.cpp(24,24): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+  Game.cpp
 E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(55,21): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(176,41): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(176,28): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(233,8): warning C4101: "yFinal": Unreferenzierte lokale Variable
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(232,8): warning C4101: "xFinal": Unreferenzierte lokale Variable
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(229,21): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(315,41): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(315,28): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(373,8): warning C4101: "yFinal": Unreferenzierte lokale Variable
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\cpp\Game.cpp(372,8): warning C4101: "xFinal": Unreferenzierte lokale Variable
+  Code wird generiert...
   GameSolution.vcxproj -> E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\GameSolution.exe

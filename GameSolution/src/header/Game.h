@@ -10,6 +10,7 @@
 #include "Sprite.h"
 #include "Charakter.h"
 #include "Debugger.h"
+#include "Camera.h"
 
 //temporär kommt in die Kamera Klasse
 static glm::vec3 cameraPos;
@@ -33,6 +34,7 @@ private:
 	BufferArray* arrayBuffer;
 	Sprite* charakterSprite;
 	Charakter* charakter;
+	Camera camera;
 
 	GLFWwindow* window;
 	float windowHeight;
@@ -52,6 +54,7 @@ public:
 	~Game();
 	void process();
 	void cameraTest();
+	void processMapCamera();
 	//TODO load first map => buffer weiter befüllen und karte laden
 	//void loadMap();
 };

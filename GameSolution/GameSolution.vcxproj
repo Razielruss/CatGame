@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="src\cpp\BufferArray.cpp" />
+    <ClCompile Include="src\cpp\Camera.cpp" />
     <ClCompile Include="src\cpp\Charakter.cpp" />
     <ClCompile Include="src\cpp\Debugger.cpp" />
     <ClCompile Include="src\cpp\Game.cpp" />
@@ -595,6 +596,7 @@
     <ClInclude Include="Dependencies\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\vector_relational.hpp" />
     <ClInclude Include="src\header\BufferArray.h" />
+    <ClInclude Include="src\header\Camera.h" />
     <ClInclude Include="src\header\Charakter.h" />
     <ClInclude Include="src\header\Debugger.h" />
     <ClInclude Include="src\header\Game.h" />
