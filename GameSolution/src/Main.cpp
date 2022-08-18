@@ -1,64 +1,51 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include "header/stb_image.h"
-
-#include "header/Shader.h"
-#include "header/Buffer.h"
-#include "header/BufferArray.h"
-
 #include "glm/glm.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#define ASSERT(x) if(!(x)) __debugbreak();
-#define GLCall(x) GLClearError();\
-     x;\
-     ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+#include "Application.h"
+#include <functional>
+#include "Events/Event.h";
+#include "Events/KeyEvents.h"
 
+/*
+class A {
 
+public:
+	A() {
 
-static unsigned int texturBuffer;
-static int spriteHeight, spriteWidth, nrChannels;
-
-
-
-static void loadSprite() {
-	stbi_set_flip_vertically_on_load(1);
-	glGenTextures(1, &texturBuffer);
-	glBindTexture(GL_TEXTURE_2D, texturBuffer);
-	// set the texture wrapping/filtering options (on the currently bound texture object)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	// load and generate the texture
-
-	unsigned char* data = stbi_load("Resources/Bilder/KatzeAnimation.png", &spriteWidth, &spriteHeight, &nrChannels, 4);
-	if (data)
-	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, spriteWidth, spriteHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	}
-	else
-	{
-		std::cout << "Failed to load texture" << std::endl;
+	void onEvent(Event& e) {
+		std::cout << e.getEventName().c_str() << std::endl;
 	}
-	stbi_image_free(data);
-}
 
+};
+
+using namespace std::placeholders;
+*/
 int main(void)
 {
+	/*
+	A a;
+	KeyPress kp;
+	auto b = std::bind(&A::onEvent, &a, _1);
+
+	std::function<void(Event&)> test = b;
+	b(kp);
+	*/
+	Application app;
+	app.runApplication();
+	/*
 	GLFWwindow* window;
 
-	/* Initialize the library */
+
 	if (!glfwInit())
 		return -1;
 
 
-	/* Create a windowed mode window and its OpenGL context */
+
 	window = glfwCreateWindow(1024, 768, "Hello World", NULL, NULL);
 	if (!window)
 	{
@@ -80,6 +67,12 @@ int main(void)
 		-0.2f, -0.2f, 0.0f, (spriteHeight - height) / spriteHeight,//unten links
 		-0.2f, 0.2f,  0.0f, 1.0f//oben Links
 	};
+	float rectAngle2[4 * 4] = {
+		0.5f, 0.5f,	  width / spriteWidth, 1.0f,//oben rechts
+		0.5f, -0.5f,  width / spriteWidth, (spriteHeight - height) / spriteHeight,//unten rechts
+		-0.5f, -0.5f, 0.0f, (spriteHeight - height) / spriteHeight,//unten links
+		-0.5f, 0.5f,  0.0f, 1.0f//oben Links
+	};
 
 	unsigned int indexArray[2 * 3] = {
 		0, 1, 2,
@@ -90,6 +83,13 @@ int main(void)
 	vertexBuffer.bind();
 	vertexBuffer.setBufferSizeF(16);
 	vertexBuffer.addDataF(16, rectAngle);
+	vertexBuffer.unbind();
+
+	Buffer vertexBuffer2(GL_ARRAY_BUFFER);
+	vertexBuffer2.bind();
+	vertexBuffer2.setBufferSizeF(16);
+	vertexBuffer2.addDataF(16, rectAngle2);
+	vertexBuffer2.unbind();
 
 	Buffer indexBuffer(GL_ELEMENT_ARRAY_BUFFER);
 	indexBuffer.bind();
@@ -107,20 +107,35 @@ int main(void)
 
 
 	Shader shader("Resources/Shader.shader", "#defaultVertexShader", "#defaultFragmentShader");
+	Shader shader2("Resources/Shader.shader", "#defaultVertexShader", "#defaultFragmentShader2");
+	//indexBuffer.bind();
 	shader.bind();
 	shader.setUniform1i("ourTexture", 0);
 	shader.activateTexture(GL_TEXTURE0);
-	/* Loop until the user closes the window */
+
 	glm::vec2 render(0, width);
 	int i = 0;
+	int j = 0;
 	float time = 0;
 	while (!glfwWindowShouldClose(window))
 	{
-		/* Render here */
+
+
+
+		if (j % 2 == 0) {
+
+			vertexBuffer.bind();
+
+		}
+		else {
+			vertexBuffer2.bind();
+		}
+		bufferArray.aktivateAllLayouts();
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 		//glUniform2f(glGetUniformLocation(shaderProgram, "additional"), render.x, (i % 8) * render.y);
+
 		if (glfwGetTime() > time) {
 			shader.setUniform2f("shift", (((i % 5)) * 63.0f + 1.0f) / spriteWidth, 0.0f);
 			i++;
@@ -128,15 +143,16 @@ int main(void)
 		}
 
 
-		/* Swap front and back buffers */
+
 		glfwSwapBuffers(window);
 
-		/* Poll for and process events */
-		glfwPollEvents();
 
+		glfwPollEvents();
+		j++;
 	}
 
 	glfwTerminate();
+	*/
 	return 0;
 
 }

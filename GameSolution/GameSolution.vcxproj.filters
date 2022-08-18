@@ -18,22 +18,34 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\cpp\Shader.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cpp\std_image.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\cpp\Debugger.cpp">
+    <ClCompile Include="src\Application.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\cpp\Buffer.cpp">
+    <ClCompile Include="src\Windows\WindowsWindow.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\cpp\BufferArray.cpp">
+    <ClCompile Include="src\Debugger.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Buffer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BufferArray.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\std_image.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\KeyEvents.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\WindowEvents.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -458,12 +470,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\header\Shader.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="src\header\stb_image.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Dependencies\glm\detail\_features.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -1322,13 +1328,37 @@
     <ClInclude Include="Dependencies\glm\vector_relational.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\Debugger.h">
+    <ClInclude Include="src\Application.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\Buffer.h">
+    <ClInclude Include="src\Windows\WindowsWindow.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\BufferArray.h">
+    <ClInclude Include="src\Debugger.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stb_image.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BufferArray.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Buffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Event.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\KeyEvents.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\WindowEvent.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\MouseEvent.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

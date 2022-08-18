@@ -1,7 +1,6 @@
-﻿  Main.cpp
-  Buffer.cpp
-  BufferArray.cpp
-  Debugger.cpp
-  Shader.cpp
+﻿  Application.cpp
+  WindowsWindow.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(7,12): warning C4305: "return": Verkürzung von "int" in "bool"
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(14,12): warning C4305: "return": Verkürzung von "int" in "bool"
   Code wird generiert...
   GameSolution.vcxproj -> E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\GameSolution.exe
