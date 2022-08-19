@@ -51,14 +51,18 @@ bool WindowsWindow::init() {
 			case GLFW_RELEASE:
 			{
 				if (glfwGetKeyName(key, scanCode) != NULL) {
-					LOG("KEY RELEASE", glfwGetKeyName(key, scanCode));
+					KeyRelease keyRelease(glfwGetKeyName(key, scanCode), key, scanCode, action, mods);
+					keyRelease.printKeyInfo();
+					windowData.applicationEventFunction(keyRelease);
 				}
 				break;
 			}
 			case GLFW_REPEAT:
 			{
 				if (glfwGetKeyName(key, scanCode) != NULL) {
-					LOG("KEY REPEAT", glfwGetKeyName(key, scanCode));
+					KeyRepeat keyRepeat(glfwGetKeyName(key, scanCode), key, scanCode, action, mods);
+					keyRepeat.printKeyInfo();
+					windowData.applicationEventFunction(keyRepeat);
 				}
 			}
 			}

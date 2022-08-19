@@ -1,6 +1,9 @@
-﻿  Application.cpp
-  WindowsWindow.cpp
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(7,12): warning C4305: "return": Verkürzung von "int" in "bool"
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(14,12): warning C4305: "return": Verkürzung von "int" in "bool"
+﻿  BufferArray.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\OpenGL\BufferArray.h(3,10): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "Debugger.h": No such file or directory
+  Shader.cpp
+  std_image.cpp
+  Buffer.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\OpenGL\Buffer.h(5,10): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "Debugger.h": No such file or directory
+  Main.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Main.cpp(10,10): warning C4067: Unerwartete Token nach Präprozessordirektive - Zeilenvorschub erwartet.
   Code wird generiert...
-  GameSolution.vcxproj -> E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\GameSolution.exe

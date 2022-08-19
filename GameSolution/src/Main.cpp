@@ -35,6 +35,7 @@ int main(void)
 	std::function<void(Event&)> test = b;
 	b(kp);
 	*/
+
 	Application app;
 	app.runApplication();
 	/*
