@@ -1,9 +1,11 @@
-﻿  BufferArray.cpp
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\OpenGL\BufferArray.h(3,10): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "Debugger.h": No such file or directory
-  Shader.cpp
-  std_image.cpp
-  Buffer.cpp
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\OpenGL\Buffer.h(5,10): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "Debugger.h": No such file or directory
-  Main.cpp
-E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Main.cpp(10,10): warning C4067: Unerwartete Token nach Präprozessordirektive - Zeilenvorschub erwartet.
+﻿  Debugger.cpp
+  KeyEvents.cpp
+  WindowsWindow.cpp
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(7,12): warning C4305: "return": Verkürzung von "int" in "bool"
+E:\Schule\Studium\Master\MasterThesis\CatGame\Game\GameSolution\src\Windows\WindowsWindow.cpp(14,12): warning C4305: "return": Verkürzung von "int" in "bool"
   Code wird generiert...
+  LINK : E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\GameSolution.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
+LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\vc120.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+  GameSolution.vcxproj -> E:\Schule\Studium\Master\MasterThesis\CatGame\Game\Debug\GameSolution.exe

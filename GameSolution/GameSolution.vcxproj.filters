@@ -27,25 +27,31 @@
     <ClCompile Include="src\Windows\WindowsWindow.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\Debugger.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="src\Events\KeyEvents.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\Events\WindowEvents.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\OpenGL\Buffer.cpp">
+    <ClCompile Include="src\Renderer\OpenGL\Buffer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\OpenGL\BufferArray.cpp">
+    <ClCompile Include="src\Renderer\OpenGL\BufferArray.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\OpenGL\Shader.cpp">
+    <ClCompile Include="src\Renderer\OpenGL\Shader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\OpenGL\std_image.cpp">
+    <ClCompile Include="src\Renderer\OpenGL\std_image.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\BatchRenderer2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Charakter.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Debugger.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1334,9 +1340,6 @@
     <ClInclude Include="src\Windows\WindowsWindow.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\Debugger.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\Events\Event.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -1349,16 +1352,28 @@
     <ClInclude Include="src\Events\MouseEvent.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGL\Buffer.h">
+    <ClInclude Include="src\Renderer\OpenGL\Buffer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGL\BufferArray.h">
+    <ClInclude Include="src\Renderer\OpenGL\BufferArray.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGL\Shader.h">
+    <ClInclude Include="src\Renderer\OpenGL\Shader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\OpenGL\stb_image.h">
+    <ClInclude Include="src\Renderer\OpenGL\stb_image.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\BatchRenderer2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Renderable.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Charakter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Debugger.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

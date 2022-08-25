@@ -155,13 +155,15 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\OpenGL\BufferArray.cpp" />
-    <ClCompile Include="src\Debugger.cpp" />
+    <ClCompile Include="src\Renderer\BatchRenderer2D.cpp" />
+    <ClCompile Include="src\Renderer\Charakter.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\BufferArray.cpp" />
+    <ClCompile Include="src\utils\Debugger.cpp" />
     <ClCompile Include="src\Events\KeyEvents.cpp" />
     <ClCompile Include="src\Events\WindowEvents.cpp" />
-    <ClCompile Include="src\OpenGL\Shader.cpp" />
-    <ClCompile Include="src\OpenGL\std_image.cpp" />
-    <ClCompile Include="src\OpenGL\Buffer.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\Shader.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\std_image.cpp" />
+    <ClCompile Include="src\Renderer\OpenGL\Buffer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Windows\WindowsWindow.cpp" />
   </ItemGroup>
@@ -595,15 +597,18 @@
     <ClInclude Include="Dependencies\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\vector_relational.hpp" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\OpenGL\BufferArray.h" />
-    <ClInclude Include="src\Debugger.h" />
+    <ClInclude Include="src\Renderer\BatchRenderer2D.h" />
+    <ClInclude Include="src\Renderer\Charakter.h" />
+    <ClInclude Include="src\Renderer\OpenGL\BufferArray.h" />
+    <ClInclude Include="src\utils\Debugger.h" />
     <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\Events\KeyEvents.h" />
     <ClInclude Include="src\Events\MouseEvent.h" />
     <ClInclude Include="src\Events\WindowEvent.h" />
-    <ClInclude Include="src\OpenGL\Shader.h" />
-    <ClInclude Include="src\OpenGL\stb_image.h" />
-    <ClInclude Include="src\OpenGL\Buffer.h" />
+    <ClInclude Include="src\Renderer\OpenGL\Shader.h" />
+    <ClInclude Include="src\Renderer\OpenGL\stb_image.h" />
+    <ClInclude Include="src\Renderer\OpenGL\Buffer.h" />
+    <ClInclude Include="src\Renderer\Renderable.h" />
     <ClInclude Include="src\Windows\WindowsWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

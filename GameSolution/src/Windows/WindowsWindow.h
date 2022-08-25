@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include "../Debugger.h"
+#include "../utils/Debugger.h"
 #include "../Events/Event.h"
 #include "../Events/KeyEvents.h"
 #include "../Events/MouseEvent.h"
