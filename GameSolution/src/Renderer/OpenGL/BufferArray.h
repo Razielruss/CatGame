@@ -12,14 +12,23 @@ struct Layout {
 
 class BufferArray {
 private:
+	unsigned int bufferID;
 	std::vector<Layout>bufferLayouts;	//Speichert die eingestellten Layouts
 
 public:
 	BufferArray();
 	~BufferArray();
 
-	//Definition eines Floatlayouts
-	void addLayoutF(unsigned int index, int size, int stride, int offset);
+	template<typename T>
+	void addLayout(unsigned int index, int size, int stride, int offset) {
+		Layout layout;
+		layout.index = index;
+		layout.size = size;
+		layout.stride = stride * sizeof(T);
+		layout.offset = offset * sizeof(T);
+
+		bufferLayouts.push_back(layout);
+	}
 
 	//Bestimmtes Layout wird aktiviert
 	void aktivateLayout(unsigned int index);

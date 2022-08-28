@@ -9,17 +9,6 @@ VertexBuffer::~VertexBuffer() {
 	//Empty
 }
 
-/*
-void Buffer::addDataF(unsigned int dataLength, float* data) {
-	if ((offset + dataLength * sizeof(float)) <= bufferSize) {
-		GLCall(glBufferSubData(bufferType, offset, dataLength * sizeof(float), data));
-		offset = offset + dataLength * sizeof(float);
-	}
-	else {
-		LOG("Buffer zu klein");
-	}
-}
-*/
 
 void VertexBuffer::bind() {
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, bufferID));
@@ -40,10 +29,20 @@ IndexBuffer::~IndexBuffer() {
 	//Empty
 }
 
-void IndexBuffer::addData(unsigned int dataLength, unsigned int* data) {
-	GLCall(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, dataLength * sizeof(unsigned int), data));
-}
+void IndexBuffer::generateAndAddData(unsigned int quadCount) {
+	unsigned int* indexArray = new unsigned int[arraySizeForQuad * quadCount];
 
+	for (int i = 0; i < quadCount; i++) {
+		indexArray[i * 6 + 0] = arrayPattern[0] + i * 4;
+		indexArray[i * 6 + 1] = arrayPattern[1] + i * 4;
+		indexArray[i * 6 + 2] = arrayPattern[2] + i * 4;
+		indexArray[i * 6 + 3] = arrayPattern[3] + i * 4;
+		indexArray[i * 6 + 4] = arrayPattern[4] + i * 4;
+		indexArray[i * 6 + 5] = arrayPattern[5] + i * 4;
+	}
+	addData<unsigned int>(arraySizeForQuad * quadCount, indexArray);
+	delete[] indexArray;
+}
 
 void IndexBuffer::bind() {
 	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferID));

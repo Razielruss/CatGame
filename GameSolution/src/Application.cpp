@@ -12,11 +12,18 @@ Application::~Application() {
 
 void Application::runApplication() {
 
+	Shader shader("Resources/Shader.shader", "#defaultVertexShader", "#defaultFragmentShader");
+	shader.bind();
+	BatchRenderer2D renderer(1);
+	Charakter charakter;
+	renderer.begin();
+	renderer.submit(charakter);
+	renderer.end();
 	while (run) {
-
+		renderer.flush();
 		window->updateWindow();
-
 	}
+
 }
 
 void Application::onEvent(Event& e) {

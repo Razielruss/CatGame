@@ -1,21 +1,12 @@
 #include "BufferArray.h"
 
 BufferArray::BufferArray() {
-
+	glGenVertexArrays(1, &bufferID);
+	glBindVertexArray(bufferID);
 }
 
 BufferArray::~BufferArray() {
 
-}
-
-void BufferArray::addLayoutF(unsigned int index, int size, int stride, int offset) {
-	Layout layout;
-	layout.index = index;
-	layout.size = size;
-	layout.stride = stride * sizeof(float);
-	layout.offset = offset * sizeof(float);
-
-	bufferLayouts.push_back(layout);
 }
 
 void BufferArray::aktivateLayout(unsigned int index) {
