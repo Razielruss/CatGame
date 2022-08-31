@@ -12,6 +12,7 @@ Application::~Application() {
 
 void Application::runApplication() {
 
+#if 0
 	Shader shader("Resources/Shader.shader", "#defaultVertexShader", "#defaultFragmentShader");
 	shader.bind();
 	BatchRenderer2D renderer(1);
@@ -19,8 +20,12 @@ void Application::runApplication() {
 	renderer.begin();
 	renderer.submit(charakter);
 	renderer.end();
+#endif
+	CharakterLayer layer;
+	layer.init();
 	while (run) {
-		renderer.flush();
+		//renderer.flush();
+		layer.render();
 		window->updateWindow();
 	}
 

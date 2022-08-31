@@ -2,13 +2,7 @@
 #include "Windows/WindowsWindow.h"
 #include "Events/Event.h"
 #include <functional>
-
-//später bearbeiten
-#include "Renderer/BatchRenderer2D.h"
-#include "Renderer/OpenGL/Shader.h"
-
-//kann später entfernt werden
-#include "Renderer/Charakter.h"
+#include "Layers/CharakterLayer.h"
 
 using namespace std::placeholders;
 class Application {

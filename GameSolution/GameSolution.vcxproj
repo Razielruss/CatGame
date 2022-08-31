@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Layers\CharakterLayer.cpp" />
     <ClCompile Include="src\Renderer\BatchRenderer2D.cpp" />
     <ClCompile Include="src\Renderer\Charakter.cpp" />
     <ClCompile Include="src\Renderer\OpenGL\BufferArray.cpp" />
@@ -597,6 +598,8 @@
     <ClInclude Include="Dependencies\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\vector_relational.hpp" />
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\Layers\CharakterLayer.h" />
+    <ClInclude Include="src\Layers\Layer.h" />
     <ClInclude Include="src\Renderer\BatchRenderer2D.h" />
     <ClInclude Include="src\Renderer\Charakter.h" />
     <ClInclude Include="src\Renderer\OpenGL\BufferArray.h" />

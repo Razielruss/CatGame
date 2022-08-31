@@ -54,6 +54,9 @@
     <ClCompile Include="src\utils\Debugger.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\Layers\CharakterLayer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shader.shader" />
@@ -1374,6 +1377,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\Debugger.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\Layer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Layers\CharakterLayer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
