@@ -23,6 +23,8 @@ void CharakterLayer::render() {
 }
 
 void CharakterLayer::init() {
+	matrizen.push_back(glm::mat4(1.0f));
+
 	batchRenderer2D->begin();
 	batchRenderer2D->submit(*charakter);
 	batchRenderer2D->end();

@@ -11,6 +11,7 @@ protected:
 	BatchRenderer2D* batchRenderer2D;
 	std::vector<glm::mat4> matrizen;
 
+
 public:
 	virtual void handleEvent(Event& e) = 0;
 	virtual void render() = 0;
