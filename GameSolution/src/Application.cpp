@@ -4,6 +4,7 @@ Application::Application() {
 	run = true;
 	window = new WindowsWindow(1024, 768, "Cat Game");
 	window->setApplicationEventFunction(std::bind(&Application::onEvent, this, _1));
+	initLayer();
 }
 
 Application::~Application() {
@@ -21,12 +22,12 @@ void Application::runApplication() {
 	renderer.submit(charakter);
 	renderer.end();
 #endif
-	CharakterLayer layer;
-	layer.init();
 	while (run) {
-		//renderer.flush();
-		layer.render();
-		window->updateWindow();
+		for (std::vector<Layer*>::iterator it = layerStack.begin(); it != layerStack.end(); ++it) {
+			//renderer.flush();
+			(*it)->render();
+			window->updateWindow();
+		}
 	}
 
 }
@@ -41,6 +42,13 @@ void Application::onEvent(Event& e) {
 		break;
 	}
 
+}
+
+void Application::initLayer() {
+	Layer::setSizesFromWindow(*window);
+	CharakterLayer* charakterLayer = new CharakterLayer();
+	charakterLayer->init();
+	layerStack.push_back(charakterLayer);
 }
 
 void Application::closeWindow(Event& e) {

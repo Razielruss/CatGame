@@ -37,6 +37,9 @@ public:
 	void updateWindow();
 	void setApplicationEventFunction(std::function<void(Event&)> applicationEventFunction);
 
+
+	inline WindowData getWindowData() { return windowData; }
+
 	void inline closeWindow() { glfwWindowShouldClose(window); }
 
 };

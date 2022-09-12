@@ -1,6 +1,2 @@
 ﻿  Application.cpp
-  CharakterLayer.cpp
-  Main.cpp
-E:\Schule\Studium\Master\CatGame\CatGame\Game\GameSolution\src\Main.cpp(10,10): warning C4067: Unerwartete Token nach Präprozessordirektive - Zeilenvorschub erwartet.
-  Code wird generiert...
   GameSolution.vcxproj -> E:\Schule\Studium\Master\CatGame\CatGame\Game\Debug\GameSolution.exe

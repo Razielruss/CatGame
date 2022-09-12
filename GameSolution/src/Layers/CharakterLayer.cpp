@@ -31,3 +31,8 @@ void CharakterLayer::init() {
 
 }
 
+#if _DEBUG
+void CharakterLayer::logSizes() {
+	LOG(Layer::heightFromWindow, Layer::widthFromWindow);
+}
+#endif
